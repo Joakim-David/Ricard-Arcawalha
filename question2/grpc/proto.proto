@@ -1,0 +1,22 @@
+syntax = "proto3";
+option go_package = "question2/grpc/proto";
+
+
+message Empty {}
+
+message Request {
+    int64 ID = 1; 
+}
+
+message GrantAccess {
+    int64 ID = 1; 
+}
+
+message Release {
+    int64 ID = 1; 
+}
+
+service Mopper {
+    rpc RequestToken (Request) returns (GrantAccess) {};
+    rpc ReleaseToken (Release) returns (Empty) {};
+}
